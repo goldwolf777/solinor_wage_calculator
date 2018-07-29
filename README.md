@@ -5,7 +5,8 @@ Current worked hours for employees are stored in the CSV.
 CSV file contains Name, Id, Date, Start Time and End Time.
 There are different rates that are paid to the user such as evening rate, standard rate, overtime rates.
 
-Spring boot application is created which uses Java, OpenCSV, lombok etc and Thymeleaf for the UI.
+Spring boot application is created which uses Java, OpenCSV, lombok etc and Thymeleaf with Bootstrap for the UI.
+Bootstrap UI will make the application easier to view on tablet devices etc as well as desktops.
 To read the CSV files the OpenCSV library was used which maps the CSV file to the object.
 We let the user to upload the file which will be stored by default at /etc/solinor/csv if the folder doesn't exist application will create it.
 This path can be changed in the webserver.properties. 
