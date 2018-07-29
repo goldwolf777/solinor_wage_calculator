@@ -13,7 +13,7 @@ class EmployeeMinuteCalculatorTest {
 	@Test
 	void shouldCorrectlyCalculateNineToFiveMinutesWorked() {
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(TestUtils.salaryDataMap("9:00", "17:00"));
+		employeeMinuteCalculator.calculateMinutesWorked(TestUtils.salaryDataMap("9:00", "17:00"));
 		List<Employee> employeeList = employeeMinuteCalculator.employeeList;
 		Employee employee = employeeList.get(0);
 		assertEquals(employeeList.size(), 1);
@@ -32,7 +32,7 @@ class EmployeeMinuteCalculatorTest {
 	@Test
 	void shouldCorrectlyCalculateStandardOvertime() {
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(TestUtils.salaryDataMap("9:00", "19:00"));
+		employeeMinuteCalculator.calculateMinutesWorked(TestUtils.salaryDataMap("9:00", "19:00"));
 		List<Employee> employeeList = employeeMinuteCalculator.employeeList;
 		Employee employee = employeeList.get(0);
 		assertEquals(employeeList.size(), 1);
@@ -51,7 +51,7 @@ class EmployeeMinuteCalculatorTest {
 	@Test
 	void shouldCorrectlyCalculateStandardAndExtraOvertime() {
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(TestUtils.salaryDataMap("9:00", "20:00"));
+		employeeMinuteCalculator.calculateMinutesWorked(TestUtils.salaryDataMap("9:00", "20:00"));
 		List<Employee> employeeList = employeeMinuteCalculator.employeeList;
 		Employee employee = employeeList.get(0);
 		assertEquals(employeeList.size(), 1);
@@ -70,7 +70,7 @@ class EmployeeMinuteCalculatorTest {
 	@Test
 	void shouldCorrectlyCalculateExtraTime() {
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(TestUtils.salaryDataMap("19:00", "20:00"));
+		employeeMinuteCalculator.calculateMinutesWorked(TestUtils.salaryDataMap("19:00", "20:00"));
 		List<Employee> employeeList = employeeMinuteCalculator.employeeList;
 		Employee employee = employeeList.get(0);
 		assertEquals(employeeList.size(), 1);
@@ -89,7 +89,7 @@ class EmployeeMinuteCalculatorTest {
 	@Test
 	void shouldCorrectlyCalculateStandardAndExtraTime() {
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(TestUtils.salaryDataMap("18:00", "20:00"));
+		employeeMinuteCalculator.calculateMinutesWorked(TestUtils.salaryDataMap("18:00", "20:00"));
 		List<Employee> employeeList = employeeMinuteCalculator.employeeList;
 		Employee employee = employeeList.get(0);
 		assertEquals(employeeList.size(), 1);
@@ -109,7 +109,7 @@ class EmployeeMinuteCalculatorTest {
 	@Test
 	void shouldCorrectlyCalculateMorningTimeAndOvertime() {
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(TestUtils.salaryDataMap("4:00", "16:00"));
+		employeeMinuteCalculator.calculateMinutesWorked(TestUtils.salaryDataMap("4:00", "16:00"));
 		List<Employee> employeeList = employeeMinuteCalculator.employeeList;
 		Employee employee = employeeList.get(0);
 		assertEquals(employeeList.size(), 1);
@@ -128,7 +128,7 @@ class EmployeeMinuteCalculatorTest {
 	@Test
 	void shouldCorrectlyCalculatNextDayTime() {
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(TestUtils.salaryDataMap("22:00", "2:00"));
+		employeeMinuteCalculator.calculateMinutesWorked(TestUtils.salaryDataMap("22:00", "2:00"));
 		List<Employee> employeeList = employeeMinuteCalculator.employeeList;
 		Employee employee = employeeList.get(0);
 		assertEquals(employeeList.size(), 1);
@@ -147,7 +147,7 @@ class EmployeeMinuteCalculatorTest {
 	@Test
 	void shouldCorrectlyCalculatNormalTimeAndNextDayTime() {
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(TestUtils.salaryDataMap("18:00", "1:00"));
+		employeeMinuteCalculator.calculateMinutesWorked(TestUtils.salaryDataMap("18:00", "1:00"));
 		List<Employee> employeeList = employeeMinuteCalculator.employeeList;
 		Employee employee = employeeList.get(0);
 		assertEquals(employeeList.size(), 1);
@@ -166,7 +166,7 @@ class EmployeeMinuteCalculatorTest {
 	@Test
 	void shouldCorrectlyCalculatNormalTimeAndNextDayTimeAndOvertime() {
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(TestUtils.salaryDataMap("18:00", "6:00"));
+		employeeMinuteCalculator.calculateMinutesWorked(TestUtils.salaryDataMap("18:00", "6:00"));
 		List<Employee> employeeList = employeeMinuteCalculator.employeeList;
 		Employee employee = employeeList.get(0);
 		assertEquals(employeeList.size(), 1);
