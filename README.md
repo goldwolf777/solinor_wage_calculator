@@ -18,6 +18,8 @@ The user after uploading the file will be shown the salary calculations, and use
 
 The logo for the application is owned by "Solinor" and application is only uses it for demonstration pursposes for the task that is given by Solinor.
 
+File upload classes resemble the Spring documentation examples and are modified for this scenario
+
 Few things are missing and should be added for the fully working and usable application
 1)Security - currently we don't ask the user to authenticate. This can be done with spring security and we can store the user information on the database.
 2)Database - currently we don't have a database, but it would be nice to store the csv data in the database so we could manipulate the data better, as well as store the data for the period of time that its needed. Data can be removed by the user or scheduler if needed.
