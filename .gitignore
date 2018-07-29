@@ -1,0 +1,26 @@
+**/target
+
+# IntelliJ Idea files #
+##################
+.idea
+*.iml
+*.ipr
+*.ids
+*.iws
+*.eml
+
+# Eclipse files #
+#################
+.settings/
+.project
+.classpath
+*.bpmn2d
+.DS_Store
+
+# Netbeans config #
+# ############### #
+nbproject
+nb-configuration.xml
+nbactions.xml
+licenseheader.txt
+package-lock.json

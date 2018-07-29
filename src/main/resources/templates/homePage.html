@@ -1,0 +1,73 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User</title>
+    <div th:replace="fragments/head :: head"/>
+    <script src="../main.js" type="text/javascript"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+
+<div th:if="${message}">
+    <div class="alert alert-success align-text">
+        <h5 th:text="${message}"/>
+    </div>
+</div>
+
+
+<div th:if="${error}">
+    <div class="alert alert-danger align-text">
+        <h5 th:text="${error}"/>
+    </div>
+</div>
+
+<div th:if="${employeeList}">
+    <!--<p th:each="employee : ${employeeList}"-->
+    <!--th:text="${employee.employeeName}"></p>-->
+    <table class="table table-hover" th:if="${employeeList}">
+        <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Employee ID</th>
+            <th>Standard Pay</th>
+            <th>Overtime Pay</th>
+            <th>Total Monthly Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="employee : ${employeeList}">
+            <tr>
+                <td th:text="${employee.employeeName}"></td>
+                <td th:text="${employee.employeeId}"></td>
+                <td th:text="${'$'+#numbers.formatDecimal(employee.calculatedSalary.standardSalary,2,2)}"></td>
+                <td th:text="${'$'+#numbers.formatDecimal(employee.calculatedSalary.overtimeSalary,2,2)}"></td>
+                <td th:text="${'$'+#numbers.formatDecimal(employee.calculatedSalary.totalSalary,2,2)}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+<br>
+<br>
+<div class="col-xs-12 col-sm-4">
+    <h6>Stored CSV Files</h6>
+    <ul>
+        <li th:each="file : ${files}">
+            <form method="POST" enctype="multipart/form-data" action="/serveFile">
+                <table class="table table-hover">
+                    <tr>
+                        <td th:text="${file}"></td>
+                        <td><input type="hidden" th:value="${file}" name="file"/>
+                            <input type="submit" class="btn btn-primary btn-sm" value="Open"/>
+                        </td>
+                        <td><a class="btn btn-danger btn-sm" th:href="@{'/deleteCsv/'+${file}}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </li>
+    </ul>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
