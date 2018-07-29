@@ -23,3 +23,4 @@ Few things are missing and should be added for the fully working and usable appl
 3)Tests currently there are just few tests which tests some of the logic of the application. There should be some more tests such as integration tests.
 4)Application currently doesn't ask the user to confirm the deletion of the CSV file
 5)Standard hour/overtime hours/evening hours should be also configurable as maybe in future evening hours would be from 8pm?
+6)There is no checking if the file is CSV file.
