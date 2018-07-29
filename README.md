@@ -20,6 +20,8 @@ The logo for the application is owned by "Solinor" and application is only uses 
 
 File upload classes resemble the Spring documentation examples and are modified for this scenario
 
+The main time calculation logic might not be as straight forward as it seems, and sadly I was unable to make it any cleaner than it currently is withing the timescale I've had.
+
 Few things are missing and should be added for the fully working and usable application
 1)Security - currently we don't ask the user to authenticate. This can be done with spring security and we can store the user information on the database.
 2)Database - currently we don't have a database, but it would be nice to store the csv data in the database so we could manipulate the data better, as well as store the data for the period of time that its needed. Data can be removed by the user or scheduler if needed.
