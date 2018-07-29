@@ -29,10 +29,11 @@ public class EmployeeMinuteCalculator {
 	private Integer extraPayOTRate2Minutes = 0;
 	private Integer extraPayOTRate3Minutes = 0;
 
-	public void filterSalaryDataById(Map<Integer, List<SalaryData>> salaryDataHashMap) {
+	public void calculateMinutesWorked(Map<Integer, List<SalaryData>> salaryDataHashMap) {
 		String employeeName = "";
 		Integer employeeId = null;
 		for (Integer key : salaryDataHashMap.keySet()) {
+			LOG.info("Calculating minutes worked for employee with ID ()", key);
 			List<SalaryData> salaryDataList = salaryDataHashMap.get(key);
 			LocalDateTime previousEntryDate = null;
 			for (SalaryData salaryData : salaryDataList) {
@@ -62,6 +63,7 @@ public class EmployeeMinuteCalculator {
 
 			Employee employee = Employee.builder().employeeId(employeeId)
 						                    .employeeName(employeeName).employeeWorkTime(employeeWorkTime).build();
+			LOG.debug("Minutes worked calculated for employee {}", employee);
 			employeeList.add(employee);
 			resetTime();
 		}

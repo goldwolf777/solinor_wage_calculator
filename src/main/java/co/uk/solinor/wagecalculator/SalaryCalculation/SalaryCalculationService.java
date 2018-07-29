@@ -24,7 +24,7 @@ public class SalaryCalculationService {
 	public List<Employee> calculateSalariesFromCsv(String filename) throws IOException {
 		Map<Integer, List<SalaryData>> salaryDataCsvObject = csvFileReader.parseCSVToSalaryDataObject(filename);
 		EmployeeMinuteCalculator employeeMinuteCalculator = new EmployeeMinuteCalculator();
-		employeeMinuteCalculator.filterSalaryDataById(salaryDataCsvObject);
+		employeeMinuteCalculator.calculateMinutesWorked(salaryDataCsvObject);
 		List<Employee> employeeTimes = employeeMinuteCalculator.employeeList;
 		return employeeSalaryCalculator.calculateSalaries(employeeTimes);
 	}
