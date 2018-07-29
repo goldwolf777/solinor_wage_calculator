@@ -62,7 +62,7 @@ public class SalaryCalculatorController {
 		if (storageService.deleteByFileName(filename)) {
 			model.addAttribute("message", filename + " is removed");
 		} else {
-			model.addAttribute("message", filename + " unable to remove");
+			model.addAttribute("error", filename + " unable to remove");
 		}
 		model.addAttribute("files", storageService.loadAll());
 		return "homePage";
